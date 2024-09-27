@@ -17,7 +17,7 @@ function MapData() {
             setDefaultPosition([data?.location?.lat, data?.location?.lng]);
         }
 
-      // getDataFromIP();
+      getDataFromIP();
     }, [query])
     //there will be IP Address in the above dependency, we will take the IP Adress from input field which is in headers, if needed use context api.
     // next is integrate map api with api key, and set this lat and lng to that api url. 
