@@ -1,0 +1,168 @@
+ * {
+  padding: 0;
+  margin: 0;
+  font-family: 'Rubik', sans-serif;
+  box-sizing: border-box;
+ }
+:root {
+  --very-dark-gray : hsl(0, 0%, 17%);
+  --dark-gray : hsl(0, 0%, 59%);
+}
+
+body {
+  height: 100vh;
+  width: 100vw;
+  background-color: rgb(255, 255, 255);
+  display: flex;
+  justify-content: center;
+  align-items: center;
+}
+.container {
+  height: 95vh;
+  width: 95vw;
+  /* background-color: rgb(138, 138, 131); */
+  margin: 1rem;
+  margin-left: 2rem;
+}
+.header {
+  height: 12rem;
+  width: 100%;
+  background-image: url('./images/pattern-bg-desktop.png');
+}
+.header-cont {
+  display: flex;
+  padding: 2rem;
+  flex-direction: column;
+  justify-content: center;
+  align-items: center;
+  gap: 1rem;
+  color: white;
+}
+input {
+  height: 2.1rem;
+  width: 17rem;
+  padding-left: 12px;
+  border-radius:  9px 0 0 9px ;
+  outline: none;
+  border: none;
+}
+button {
+  height: 2.1rem;
+  width: 2.1rem;
+  outline: none;
+  border: none;
+  font-weight: 600;
+  color: white;
+  background-color: var(--very-dark-gray);
+  cursor: pointer;
+  border-radius: 0 9px 9px 0;
+}
+.mapData {
+  height: 6rem;
+  width: 45rem;
+  display: flex;
+  justify-content: center;
+  background-color: white;
+  border-radius: 9px;
+  position: absolute;
+  top: 11rem;
+  left: 20rem;
+}
+.mapData div {
+  display: flex;
+  flex-direction: column;
+  justify-content: center;
+  align-items: center;
+  padding: 1rem;
+  border-right: 1px solid rgb(199, 198, 198);
+  margin: 1rem;
+  overflow: hidden;
+}
+.mapData div p {
+  font-size: 11px;
+  color: rgb(108, 108, 108);
+}
+.mapData div span {
+  font-weight: 600;
+}
+#mapContainer {
+  margin: 0;
+  padding: 0;
+  position: relative;
+}
+#map {
+  width: 100%;
+  height: 22rem;
+  background-color: antiquewhite;
+  position: absolute;
+  z-index: -5;
+}
+
+  /* Here we want to style classes that are coming from leaflet. So we want CSS Modules to give us the ACTUAL classnames, not to add some random ID to them, because then they won't match the classnames defined inside the map. The solution is to define these classes as GLOBAL */
+  :global(.leaflet-popup .leaflet-popup-content-wrapper) {
+    /* background-color: var(--color-dark--1); */
+    /* color: var(--color-light--2); */
+    border-radius: 5px;
+    padding-right: 0.6rem;
+  }
+  
+  :global(.leaflet-popup .leaflet-popup-content) {
+    font-size: 1.5rem;
+    display: flex;
+    align-items: center;
+    gap: 1rem;
+  }
+  
+  :global(.leaflet-popup .leaflet-popup-content span:first-child) {
+    font-size: 2.5rem;
+    line-height: 1;
+  }
+/*   
+  :global(.leaflet-popup .leaflet-popup-tip) {
+    /* background-color: var(--color-dark--1); 
+  } */
+  
+  :global(.leaflet-popup-content-wrapper) {
+    border-left: 5px solid gray;
+  }
+  @media screen and (max-width : 500px) {
+    * {
+      margin: 0;
+      padding: 0;
+    }
+    body {
+      margin: 0;
+      padding: 0;
+    }
+    .header {
+      height: 18rem;
+    }
+    .header-cont h2 {
+      font-size: 1.3rem;
+    }
+    input {
+      width: 12rem;
+    }
+    .mapData {
+      flex-direction: column;
+      margin-left: -18rem;
+      width: 80vw;
+      height: 13rem;
+      margin-top: -2rem;
+    }
+    .mapData div {
+      margin: 0;
+      padding: 12px;
+      border-right: none;
+      margin: 12px 10px 13px 10px;
+    }
+    .container {
+      height: 100vh;
+      width: 100vw;
+      margin: 0;
+      margin-left: 0;
+    }
+    #map {
+      width: 100vw;
+    }
+  }
