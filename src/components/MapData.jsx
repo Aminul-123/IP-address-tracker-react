@@ -1,6 +1,6 @@
-import React, { useEffect, useState } from 'react'
-import { API_KEY_IP_ADDRESS } from '../constants/API';
+import React, { useEffect } from 'react'
 import { usePosition } from '../context/PositionProvider';
+const apiKey = import.meta.env.VITE_API_KEY;
 
 function MapData() {
     const {query, info, setInfo, setDefaultPosition} = usePosition()
@@ -8,9 +8,8 @@ function MapData() {
     useEffect(function () {
         async function getDataFromIP () {
             try {
-
             
-            const res = await fetch(`https://geo.ipify.org/api/v2/country,city?apiKey=${API_KEY_IP_ADDRESS}&ipAddress=${query}`)
+            const res = await fetch(`https://geo.ipify.org/api/v2/country,city?apiKey=${apiKey}&ipAddress=${query}`)
             if (!res.ok) throw new Error ('There was an Error in Checking API Address.');
 
             const data = await res.json()
